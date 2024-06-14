@@ -1,0 +1,2 @@
+log_path: '../../logs/'
+logger_name: 'production_logger'

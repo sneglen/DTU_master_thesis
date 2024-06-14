@@ -1,0 +1,88 @@
+[cmd_duration]
+min_time = 10_000  # The minimum execution time to show (in milliseconds)
+format = "([$duration]($style))"  # Customize the display format
+
+[battery]
+discharging_symbol = "⚡ "
+empty_symbol = "🪫 "
+charging_symbol = "🔌 "
+
+[[battery.display]]
+threshold = 20
+style = "red bold"
+
+[package]
+disabled = true
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = "🌳 "
+style = "bold purple"
+truncation_length = 9223372036854775807
+truncation_symbol = "…"
+only_attached = false
+always_show_remote = false
+ignore_branches = []
+disabled = false
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️💨×${count} "
+behind = "🐢×${count} "
+diverged = "🔱🏎️💨 ×${ahead_count} 🐢 ×${behind_count} "
+untracked = "🛤️ ×${count} "
+stashed = "📦 "
+modified = "📝×${count} "
+staged = "🗃️ ×${count} "
+renamed = "📛×${count} "
+deleted = "🗑️×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[python]
+pyenv_version_name = false
+pyenv_prefix = "pyenv "
+python_binary = [
+    "python",
+    "python3",
+    "python2",
+]
+format = '[(\($virtualenv\) )]($style)'
+version_format = "v${raw}"
+style = "green bold"
+symbol = ""
+disabled = false
+detect_extensions = ["py"]
+detect_files = [
+    "requirements.txt",
+    ".python-version",
+    "pyproject.toml",
+    "Pipfile",
+    "tox.ini",
+    "setup.py",
+    "__init__.py",
+]
+detect_folders = []
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+format = "[$path]($style)[$read_only]($read_only_style):"
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+style = "cyan bold"
+disabled = false
+read_only = "🔒"
+read_only_style = "red"
+truncation_symbol = ""
+home_symbol = "~"
+use_os_path_sep = true
+
+
+[gcloud]
+format = '[$symbol$account(@$domain)(\($region\))]($style) '
+symbol = "☁️  "
+style = "bold blue"
+disabled = false
+detect_env_vars = []

@@ -1,0 +1,39 @@
+### User settings (can also be accessed by Hydra)
+defaults:
+  - data:       default
+  - logger:     development
+  - openai:     default
+  - spe:        default
+  - llm:        default
+  - finetuning: default
+  - wandb:      default
+  - _self_
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging:   disabled  
+
+main_task: 
+  openai_annotate:            x 
+  evaluate_compendium:        x
+  generate_rejected_dpo_data: x
+  compare_compendiums:        x
+  data_stat_analysis:         x
+  report_figures:             run
+  spe_tasks:                  x
+  fine_tune_llm_sft:          x
+  fine_tune_llm_dpo:          x
+  test_finetuned_inference:   x
+
+standalone_dir: 'hyd/hyd_alone/'  # Output directory for standalone runs (relative to the project root)
+
+
+random_seed: 42
+
+### Hydra settings (can ONLY be accessed by hydra)
+hydra:
+  run:
+    dir: 'hyd/hyd_run/${now:%y-%m-%d_%H-%M-%S}/'   # Output directory for single runs (relative to the project root)
+  sweep:
+    dir: 'hyd/hyd_runs/${now:%y-%m-%d_%H-%M-%S}/'  # Output directory for multiple runs (relative to the project root)
+  output_subdir: 'yamls/'                          # Hydra settings placed in this subdir.
+
+

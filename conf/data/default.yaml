@@ -1,0 +1,63 @@
+overrule_data_dir: []
+#overrule_data_dir: 'data/dpo/annotation_results/'
+
+split:
+  train:  'data/raw/train_pickle_194.pkl'
+  val:    'data/raw/val_pickle_65.pkl'
+  test:   'data/raw/test_pickle_65.pkl'
+  dpo:    'data/raw/dpo_pickle_194.pkl'
+
+
+# Files to create rejected DPO training data
+dpo:
+  allow_repeat_at:  3
+  PER:  
+    file:           'data/dpo/training_lists/per_entries.txt'
+    max_retrieval:  5
+  ORG:  
+    file:           'data/dpo/training_lists/org_entries.txt'
+    max_retrieval:  4
+  QUOTES:  
+    file:           null
+    max_retrieval:  4
+  GEN:  
+    file:           null
+    max_retrieval:  null
+  FUN:  
+    file:           null
+    max_retrieval:  null
+  SRC:  
+    file:           'data/dpo/training_lists/src_entries.txt'
+    max_retrieval:  1
+  ROL:  
+    file:           'data/dpo/training_lists/rol_entries.txt'
+    max_retrieval:  2
+  EMP:  
+    file:           'data/dpo/training_lists/emp_entries.txt'
+    max_retrieval:  1
+
+
+## src/data/metrics.py
+wuzzy_conf:
+  PER:
+    mode: 'strict'            # options: [strict, relaxed]
+    threshold: 90             # options: [0-100]
+  ORG:
+    mode: 'strict'
+    threshold: 90
+  TEXT:
+    ratio_fcn: 'fuzz.WRatio'  # options: [fuzz.WRatio, fuzz.partial_ratio]
+    threshold: 90             # to match quotes
+  GEN:
+    mode: 'strict'
+  FUN:
+    mode: 'strict'
+  SRC:
+    mode: 'relaxed'
+    threshold: 90
+  ROL:
+    mode: 'relaxed'
+    threshold: 90
+  EMP:
+    mode: 'relaxed'
+    threshold: 90

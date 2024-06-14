@@ -1,0 +1,8 @@
+query_dir:    'src/openai/'
+query_name:   'system_content_en'
+query_ver:    6
+query_online: true
+
+annotate:
+  split:    'val' 
+  indices:  ['0-64']

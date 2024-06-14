@@ -1,0 +1,30 @@
+task:
+  download_llm:        x
+  local_tests:         x
+  hello_llm:           x
+  multiturn_questions: x
+  generate_character:  x
+  annotate_articles:   run
+
+annotate:  
+  split:    'val' 
+  indices:  ['0-64']
+
+  PER:      true
+  ORG:      true
+  QUOTES:   true
+  SRC:      true
+  GEN:      true
+  FUN:      true
+  ROL:      true
+  EMP:      true
+
+annotate_bypass:
+  PER:      false
+  ORG:      false
+  QUOTES:   false
+  SRC:      false
+  GEN:      false
+  FUN:      false
+  ROL:      false
+  EMP:      false

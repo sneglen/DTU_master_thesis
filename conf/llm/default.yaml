@@ -1,0 +1,36 @@
+tag:
+  for_download:   'munin'
+  for_inference:  'munin_dpo'
+  for_finetuning: 'munin'
+  gpt:            'gpt4'
+
+# Local LLMs
+mistral: 
+  name: 'mistralai/Mistral-7B-Instruct-v0.2'
+  dir: '/home/evs/hf_llm/mistral7Iv02'
+  mem-fraction-static: 0.9
+
+qwen7b:
+  name: 'Qwen/Qwen1.5-7B-Chat'
+  dir: '/home/evs/hf_llm/qwen1_5_7b'
+  mem-fraction-static: 0.9
+
+munin:
+  name: 'RJuro/munin-neuralbeagle-7b'
+  dir: '/home/evs/hf_llm/munin'
+  mem-fraction-static: 0.9
+
+munin_dpo:
+  name: 'RJuro/munin-neuralbeagle-7b-dpo'
+  dir: '/home/evs/hf_llm/munin_dpo'
+  mem-fraction-static: 0.9
+
+# GPT models
+gpt3: 
+  name: 'gpt-3.5-turbo-0125'
+
+gpt4: 
+  name: 'gpt-4-1106-preview'
+
+gpt4o:
+  name: 'gpt-4o-2024-05-13'

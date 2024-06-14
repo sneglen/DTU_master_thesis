@@ -1,0 +1,3 @@
+project:          'MT_annotation'
+entity:           'sneglen'
+api_key_env_var:  'WANDB_API_KEY'

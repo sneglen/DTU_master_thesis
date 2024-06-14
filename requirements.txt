@@ -1,0 +1,20 @@
+setuptools<58.0.0 # Needed for demjson. TODO: consider alternative to demjson
+demjson==2.2.4
+hydra-core==1.3.2
+sglang[all]==0.1.14
+tiktoken==0.6.0
+openai==1.14.2
+jsonref==1.1.0
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.25.0
+matplotlib==3.8.3
+pandas==2.2.1
+filelock==3.13.1
+datasets==2.18.0 # needed by sglang regex queries
+dill==0.3.8
+
+# UPDATE with A100 (after makefile, now included here but if issues, include in "post make" section)
+accelerate==0.29.3 # it installs triton 2.1
+bitsandbytes==0.43.1 # 
+
+wandb==0.17.0
