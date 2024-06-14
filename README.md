@@ -54,7 +54,7 @@ The third and final architecture component is related to $\texttt{DK-Mistral-7B}
 
 There are several ways to fine-tune an LLM, one of which is  Reinforcement Learning from Human Feedback (RLHF), where an intelligent agent (the LLM to be fine-tuned in this context) is aligned to human preferences. However having a human in the loop undermines the purpose of the project which is precisely to develop an automated system that can perform annotation tasks without human intervention. 
 
-A recent paradigm to fine-tune LLM from preferences without reinforcement learning is using Direct Policy Optimization(DPO), which solves the standard RLHF problem with only a simple classification loss [[Rafailov et al. - 2023](https://arxiv.org/abs/2305.18290)].
+A recent paradigm to fine-tune LLM from preferences without reinforcement learning is using Direct Preference Optimization (DPO), which solves the standard RLHF problem with only a simple classification loss [[Rafailov et al. - 2023](https://arxiv.org/abs/2305.18290)].
 
 The optimization problem is converted to a binary classification task, where the model aims to maximize the likelihood of the chosen responses over the rejected ones. In practice DPO works by comparing two versions of the model's output and adjusting the model to prefer the chosen answer and to move away from the rejected answer. With virtually no tuning of hyperparameters, DPO is reported to perform similarly or better than existing RLHF algorithms. 
 
