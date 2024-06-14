@@ -7,9 +7,10 @@ AI-Driven Media Analysis: A case study of DR’s News Coverage
 
 **e-mail:** enrique@vidal.dk
 
+**Note**: The complete code is available in the repository. However, in line with DR’s agreement, the dataset is excluded from the repository and therefore it will not be possible to run the project "as is". 
 
 ## Project overview
-The following figures provide an overview of the system's design and functionality, focusing on the architecture for annotating articles rather than delving into technical details. It highlights the three main software components of the project without going into technical details. The complete code is available in the repository, should the reader be interested in specific software parts. Note that the dataset is excluded from the repository, in line with DR's agreement.
+The following figures provide an overview of the system's design and functionality, focusing on the architecture for annotating articles rather than delving into technical details. It highlights the three main software components of the project without going into technical details. 
 
 First, it is shown how the articles are annotated using the LLMs from OpenAI. Following this, the architecture employing the open-source LLM is presented. Finally, an overview is given on how the open-source LLM is fine-tuned to enhance its annotation performance.
 
