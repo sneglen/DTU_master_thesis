@@ -30,14 +30,16 @@ Thanks to OpenAI's API and  the capabilities of the GPT models, along with the p
 
 ### 2) Annotation based on $\texttt{DK-Mistral-7B}$
 
+**Note**: For simplicity, Jurowetzki's LLM [[munin-neuralbeagle-7](https://huggingface.co/RJuro/munin-neuralbeagle-7b)], available on Hugging Face, is referred to as $\texttt{DK-Mistral-7B}$.
+
 ![Alt text](docs/figures/spe_llm_structure.png?raw=true "spe_llm_structure")
 
 
 The overall purpose of the annotation task is the same as described in the previous section and hence they share common elements. The architecture begins similarly with DR's dataset, divided into articles and target JSON structure. 
 
-The articles are retrieved by the $\texttt{Annotator Agent}$, but here the process differs. $\texttt{GPT-4}$ is estimated to have nearly 2 trillion parameters [[Wikipedia: GPT-4](https://en.wikipedia.org/wiki/GPT-4)], while $\texttt{DK-Mistral-7B}$, with its 7 billion parameters, is below 1\% of $\texttt{GPT-4}$'s size. Given the relatively small size of $\texttt{DK-Mistral-7B}$, it is more efficient to divide the annotation queries into smaller parts. Hence the relevant set of instructions needs to be fetched depending on the labels to be annotated. Moreover, the appropriate regex (regular expression) string also needs to be generated based on the actual label class structure. Recall that the LLM does not have inherent capabilities of returning JSON-formatted responses, and for this reason, the model needs to be $\textit{guided}$ based on the regex strings. 
+The articles are retrieved by the $\texttt{Annotator Agent}$, but here the process differs. $\texttt{GPT-4}$ is estimated to have nearly 2 trillion parameters [[Wikipedia: GPT-4](https://en.wikipedia.org/wiki/GPT-4)], while $\texttt{DK-Mistral-7B}$ [[Mistral 7B - Jiang et al. 2023](https://arxiv.org/abs/2310.06825)], with its 7 billion parameters, is below 1\% of $\texttt{GPT-4}$'s size. Given the relatively small size of $\texttt{DK-Mistral-7B}$, it is more efficient to divide the annotation queries into smaller parts. Hence the relevant set of instructions needs to be fetched depending on the labels to be annotated. Moreover, the appropriate regex (regular expression) string also needs to be generated based on the actual label class structure. Recall that the LLM does not have inherent capabilities of returning JSON-formatted responses, and for this reason, the model needs to be $\textit{guided}$ based on the regex strings. 
 
-The query is passed to $\texttt{SGLang}$'s API and is sent to $\texttt{SGLang}$'s backend. The $\texttt{SGLang}$'s backend receives the query and passes it further to the LLM. 
+The query is passed to $\texttt{SGLang}$'s API [[SGLang project](https://github.com/sgl-project/sglang)] and is sent to $\texttt{SGLang}$'s backend. The $\texttt{SGLang}$'s backend receives the query and passes it further to the LLM. 
 
 Once the query is processed by the LLM, a response is received through $\texttt{SGLang}$'s API back into the $\texttt{Annotator agent}$. In there, the multiple JSON-formatted fragments are validated and then joined to form a complete valid (predicted) JSON structure with the requested annotation information for the article in question. 
 
