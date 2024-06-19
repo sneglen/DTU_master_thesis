@@ -82,6 +82,7 @@ def annotate_articles(cfg: DictConfig):
 
     total_tokens = 0
     consumed_tokens = 0
+    missing_p_indices = []
 
     compendium_eval = {'art': [], 'eval' : {category: EvaluationData() for category in ARTICLE_CATEGORIES}}
 
@@ -179,7 +180,7 @@ def annotate_articles(cfg: DictConfig):
       pickle.dump(compendium_eval, file)
     logger.notice("Compendium evaluation saved.")
 
-    mt.generate_compendium_report(data_dir, compendium_eval)
+    mt.generate_compendium_report(data_dir, compendium_eval, DR_indices, missing_p_indices)
 
 
 def run_integration(cfg: DictConfig, data_dir: str):
